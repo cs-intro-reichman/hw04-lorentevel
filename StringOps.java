@@ -1,110 +1,85 @@
 public class StringOps {
-
     ////////////////////////////////////////////////////////////
-    //////                                               ///////
-    //////              Reminder:                        ///////
-    //////        allowed methods                        ///////
-    //////                                               ///////
-    //////        1.charAt(int index)                    ///////
-    //////        2.length()                             ///////
-    //////        3.substring(int start)                 ///////
-    //////        4.substring(int start,int ends)        ///////
-    //////        5.indexOf(String str)                  ///////
-    //////                                               ///////
-    //////        The rest are not allowed !             ///////
-    //////        if you want to use a different         ///////
-    //////        method, and you can implement          ///////
-    //////        it using material from the course      ///////
-    //////        you need to implement a version of     ///////
-    //////        the function by yourself.              ///////
-    //////                                               ///////
-    //////        see example for substring              ///////
-    //////        in Recitation 3 question 5             ///////
-    //////                                               ///////
+    ////// ///////
+    ////// Reminder: ///////
+    ////// allowed methods ///////
+    ////// ///////
+    ////// 1.charAt(int index) ///////
+    ////// 2.length() ///////
+    ////// 3.substring(int start) ///////
+    ////// 4.substring(int start,int ends) ///////
+    ////// 5.indexOf(String string) ///////
+    ////// ///////
+    ////// The rest are not allowed ! ///////
+    ////// if you want to use a different ///////
+    ////// method, and you can implement ///////
+    ////// it using material from the course ///////
+    ////// you need to implement a version of ///////
+    ////// the function by yourself. ///////
+    ////// ///////
+    ////// see example for substring ///////
+    ////// in Recitation 3 question 5 ///////
+    ////// ///////
     ////////////////////////////////////////////////////////////
     public static void main(String[] args) {
-       // allIndexOf("lllllllllll", 'l');
+       
     }
 
-    public static String capVowelsLowRest (String string) {
-            String ans = "";
-            for (int i = 0; i < string.length(); i++){
-                char c = string.charAt (i);
-                if ((c == 97) || (c == 101) || (c == 105) || (c == 111) || (c == 117)){
-                    ans += (char) (c -32); 
-                } else if ((c == 65) || (c == 69) || (c == 73) || (c == 79) || (c == 85)){
-                    ans += c;
-                } else if ((c > 65) && (c < 90)){
-                    ans += (char) (c + 32);
-                } else {
-                    ans += c;
-                }
-    
-            } 
-            return ans;
-        }
-
-        
-
-    public static String camelCase (String string) {
-        String retString = "";
-        int j = 0;
-        while (j < string.length() && string.charAt(j) == 32 ){
-            j++;
-        }
-        
-        while (j < string.length() && string.charAt(j) != 32){
-            if (string.charAt(j) >= 'a'){
-                retString += (char)string.charAt(j);
-            }else{
-                retString += (char)(string.charAt(j) + 32);
-            }
-            j++;
-        }
-        
-        for (int i = j; i < string.length(); i++){
-            if (string.charAt(i) != 32){
-                    if (string.charAt(i - 1) != 32){
-                        if (string.charAt(i) >= 'a'){
-                            retString += (char)string.charAt(i);
-                        }else{
-                            retString += (char)(string.charAt(i) + 32);
-                        }
-                    }else{
-                        if (string.charAt(i) >= 'a'){
-                            retString += (char)(string.charAt(i) - 32);
-                        }else{
-                            retString += (char)(string.charAt(i));
-                        
-                        } 
-                    }
+    public static String capVowelsLowRest(String string) {
+        String res = "";
+        for (int i = 0; i < string.length(); i++) {
+            char c = string.charAt(i);
+            // checks for vowels a,e,i,o,u
+            if ((c == 'a') || (c == 'e') || (c == 'i') || (c == 'o') || (c == 'u')) {
+                res += (char) (c - 32);
+            } else if ((c == 'A') || (c == 'E') || (c == 'I') || (c == 'O') || (c == 'U')) {
+                res += c;
+            } else if ((c >= 'A') && (c <= 'Z')) {
+                res += (char) (c + 32);
+            } else {
+                res += c;
             }
         }
-        return retString;
+        return res;
     }
-    
 
-    public static int[] allIndexOf (String string, char chr) {
+    public static char letterToUpper(char c) {
+        return ('a' <= c && c <= 'z') ? (char) (c - 32) : c;
+    }
+
+    public static char letterToLower(char c) {
+        return ('A' <= c && c <= 'Z') ? (char) (c + 32) : c;
+    }
+
+    public static String camelCase(String string) {
+        String res = "";
+        res += (string.charAt(0) != 32) ? string.charAt(0) : "";
+        for (int i = 1; i < string.length(); i++) {
+            if (string.charAt(i) != 32) {
+                res += (string.charAt(i - 1) == 32) ? letterToUpper(string.charAt(i)) : letterToLower(string.charAt(i));
+            }
+        }
+        res = letterToLower(res.charAt(0)) + res.substring(1);
+        return res;
+    }
+
+    public static int[] allIndexOf(String string, char c) {
         int count = 0;
-        for (int i = 0; i<string.length(); i++){
-            if (string.charAt(i)==chr){
-                count ++;
+        for (int i = 0; i < string.length(); i++) {
+            if (c == string.charAt(i)) {
+                count++;
             }
         }
-        int [] result= new int [count];
-        int j=0;
-        for (int i = 0; i<string.length(); i++){
-            if (string.charAt(i)==chr){
-                result[j]=i;
-                j++;
-            }
-        }/* 
-        for ( int i = 0; i<result.length; i++){
-            System.out.println(result[i] + ",");
-        }*/
-        return result;
-    }
-    
-    
 
+        int[] res = new int[count];
+        int index = 0;
+        for(int i = 0; i < string.length(); i++) {
+            if(string.charAt(i) == c) {
+                res[index] = i;
+                index++;
+            }
+        }
+
+        return res;
+    }
 }
