@@ -3,20 +3,16 @@ public class ArrayOps {
 
     }
     
-    public static int findMissingInt (int [] array) {
-        int missingInt = 0;
-        for (int i = 0; i < array.length+1; i++){
-            for (int j = 0; j < array.length; j++){
-                if (i == array[j]){
-                    break;
-                }
-                else{
-                    missingInt = i;
-                }
-            
-            }
+    public static int findMissingInt(int[] array) {
+        int arraySum = 0;
+        int expectedSum = 0;
+        for (int i = 0; i < array.length + 1; i++) {
+            expectedSum += i;
         }
-        return missingInt;
+        for (int i = 0; i < array.length; i++) {
+            arraySum += array[i];
+        }
+        return expectedSum - arraySum;
     }
 
     public static int secondMaxValue(int [] array) {
