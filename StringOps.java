@@ -1,4 +1,5 @@
 public class StringOps {
+
     ////////////////////////////////////////////////////////////
     //////                                               ///////
     //////              Reminder:                        ///////
@@ -22,6 +23,7 @@ public class StringOps {
     //////                                               ///////
     ////////////////////////////////////////////////////////////
     public static void main(String[] args) {
+        allIndexOf("hello world",'l');
 
     }
 
@@ -51,6 +53,7 @@ public class StringOps {
         while (j < string.length() && string.charAt(j) == 32 ){
             j++;
         }
+        
         while (j < string.length() && string.charAt(j) != 32){
             if (string.charAt(j) >= 'a'){
                 retString += (char)string.charAt(j);
@@ -100,6 +103,13 @@ public class StringOps {
             }
             
         }
+       /*  for (int i = 0; i < chrIndx.length; i++){
+            System.out.print(chrIndx[i]+ ",");
+        }
+        System.out.println();
+        System.out.print(chrIndx[0]+ ",");
+        System.out.print(chrIndx[1]+ ",");
+        System.out.print(chrIndx[2]+ ",");*/
         return chrIndx;
     }
     
