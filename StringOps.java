@@ -1,28 +1,8 @@
 public class StringOps {
-    ////////////////////////////////////////////////////////////
-    ////// ///////
-    ////// Reminder: ///////
-    ////// allowed methods ///////
-    ////// ///////
-    ////// 1.charAt(int index) ///////
-    ////// 2.length() ///////
-    ////// 3.substring(int start) ///////
-    ////// 4.substring(int start,int ends) ///////
-    ////// 5.indexOf(String string) ///////
-    ////// ///////
-    ////// The rest are not allowed ! ///////
-    ////// if you want to use a different ///////
-    ////// method, and you can implement ///////
-    ////// it using material from the course ///////
-    ////// you need to implement a version of ///////
-    ////// the function by yourself. ///////
-    ////// ///////
-    ////// see example for substring ///////
-    ////// in Recitation 3 question 5 ///////
-    ////// ///////
-    ////////////////////////////////////////////////////////////
+
     public static void main(String[] args) {
-       
+
+     // System.out.println(java.util.Arrays.toString(allIndexOf("Hello world", 'l')));
     }
 
     public static String capVowelsLowRest(String string) {
