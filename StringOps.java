@@ -23,7 +23,6 @@ public class StringOps {
     //////                                               ///////
     ////////////////////////////////////////////////////////////
     public static void main(String[] args) {
-        //allIndexOf("hello world",'l');
 
     }
 
@@ -86,31 +85,21 @@ public class StringOps {
     
 
     public static int[] allIndexOf (String string, char chr) {
-        int chrAmount = 0;
-        int j = 0;
-        int[] chrIndx;
-        chrIndx = new int[string.length()];
-        for (int i = 0; i < string.length(); i++){
-            if ( string.charAt(i) == chr){
-                chrAmount++;
+        int count = 0;
+        for (int i = 0; i<string.length(); i++){
+            if (string.charAt(i)==chr){
+                count ++;
             }
         }
-        chrIndx = new int[chrAmount];
-        for (int i = 0; i < string.length(); i++){
-            if ( string.charAt(i) == chr){
-                chrIndx[j] = i;
+        int [] result= new int [count];
+        int j=0;
+        for (int i = 0; i<string.length(); i++){
+            if (string.charAt(i)==chr){
+                result[j]=i;
                 j++;
             }
-            
         }
-       /*  for (int i = 0; i < chrIndx.length; i++){
-            System.out.print(chrIndx[i]+ ",");
-        }
-        System.out.println();
-        System.out.print(chrIndx[0]+ ",");
-        System.out.print(chrIndx[1]+ ",");
-        System.out.print(chrIndx[2]+ ",");*/
-        return chrIndx;
+        return result;
     }
     
     
