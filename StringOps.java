@@ -23,7 +23,7 @@ public class StringOps {
     //////                                               ///////
     ////////////////////////////////////////////////////////////
     public static void main(String[] args) {
-        allIndexOf("hello world",'l');
+        //allIndexOf("hello world",'l');
 
     }
 
