@@ -23,7 +23,7 @@ public class StringOps {
     //////                                               ///////
     ////////////////////////////////////////////////////////////
     public static void main(String[] args) {
-
+       // allIndexOf("lllllllllll", 'l');
     }
 
     public static String capVowelsLowRest (String string) {
@@ -98,7 +98,10 @@ public class StringOps {
                 result[j]=i;
                 j++;
             }
-        }
+        }/* 
+        for ( int i = 0; i<result.length; i++){
+            System.out.println(result[i] + ",");
+        }*/
         return result;
     }
     
